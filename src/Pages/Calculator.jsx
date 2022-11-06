@@ -24,7 +24,7 @@ const resultBox = {
 
 const textStyle = {
     fontFamily: 'Orbitron',
-    fontSize: '7vw'
+    fontSize: '7vh'
     
 }
 

@@ -11,38 +11,40 @@ const center = {
 const calculatorBase = {
     height: '70vh',
     width: '50vh',
-    backgroundColor: 'Gray'
+    backgroundColor: 'Gray',
 }
 
 const resultBox = {
-    height: '10vh',
-    width: '45vh',
-    margin: '20px',
+    height: '10%',
+    width: '90%',
+    margin: '4%',
     backgroundColor: 'Green'
 
 }
 
 const textStyle = {
     fontFamily: 'Orbitron',
-    fontSize: '7vh'
+    fontSize: '400%'
     
 }
 
 const buttonsBase = {
-    height: '53vh',
-    width: '45vh',
-    margin: '20px',
+    height: '80%',
+    width: '90%',
+    margin: '3%',
     backgroundColor: 'Black',
-    padding: '20px',
-    justifyContent: 'space-evenly'
+    padding: '1%',
+    justifyContent: 'space-evenly',
     
 }
 
 const buttons = {
-    height: '9vh',
-    width: '9vh',
-    margin: '4px'
+    height: '17%',
+    width: '22%',
+    margin: '1%'
 }
+
+
 
 const Render = () => {
 
@@ -54,36 +56,47 @@ const Render = () => {
         });
        }, []);
 
+    const [firstNum, setfirstNum] = useState('');
+
+    const handleClick = (event) => {
+        //alert(event.target.innerText);    // Click Me
+        setfirstNum(firstNum.concat(event.target.innerText));
+    }
 
     return(
+        <>
+        <meta http-equiv='cache-control' content='no-cache'></meta>
+        <meta http-equiv='expires' content='0'></meta>
+        <meta http-equiv='pragma' content='no-cache'></meta>
+        
         <div style = {center}>
 
             <div style = {calculatorBase}> 
 
                 <div style = {resultBox} className="d-flex align-items-center"> 
-                    <p style = {textStyle}>0</p>
+                    <p style = {textStyle}>{firstNum}</p>
                 </div>           
 
                 <div style = {buttonsBase}>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>1</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>2</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>3</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>1</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>2</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>3</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>+</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>4</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>5</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>6</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>4</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>5</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>6</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>-</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>7</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>8</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>9</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>7</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>8</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>9</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>x</button>
-                    <button type="button" class="btn btn-secondary" style = {buttons}>0</button>
+                    <button onClick={handleClick} type="button" class="btn btn-secondary" style = {buttons}>0</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>.</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>c</button>
                     <button type="button" class="btn btn-secondary" style = {buttons}>/</button>
                     <button type="button" class="btn btn-secondary" style = {{
-                        height: '9vh',
-                        width: '39vh',
+                        height: '20%',
+                        width: '94%',
                         margin: '4px'
                     }}>ENTER</button>
                 </div>
@@ -91,6 +104,7 @@ const Render = () => {
             </div>
 
         </div>
+        </>
 
     )
 }
